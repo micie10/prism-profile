@@ -19,11 +19,20 @@
       --bg-grad-top: rgba(120, 20, 20, 0.15);
       --bg-grad-bottom: #050505;
 
+      /* 편집기 고정 색상 */
       --editor-bg: #120405;
       --editor-border: #321010;
-      --section-bg: #180607;
-      --section-border: #431414;
+      --editor-section-bg: #180607;
+      --editor-section-border: #431414;
+      --editor-input-bg: #0f0303;
+      --editor-input-border: #5c1818;
+      --editor-label: #f5dfdf;
+      --editor-text: #f3e9e9;
+      --editor-soft: #caa8a8;
+      --editor-white: #fff7f7;
+      --editor-accent: #ff2d2d;
 
+      /* 카드 전용 변경 색상 */
       --card-bg: #120304;
       --card-border: #2e0909;
       --card-top-border: #7e1717;
@@ -32,21 +41,23 @@
       --panel-border: #4a1212;
       --stat-border: #931818;
 
-      --accent: #ff2d2d;
-      --accent-soft: #a31717;
-      --accent-line: #df2020;
+      --card-accent: #ff2d2d;
+      --card-accent-soft: #a31717;
+      --card-accent-line: #df2020;
 
-      --text-main: #f3e9e9;
-      --text-soft: #caa8a8;
-      --text-white: #fff7f7;
-      --text-body: #f0dddd;
+      --card-text-main: #f3e9e9;
+      --card-text-white: #fff7f7;
+      --card-text-body: #f0dddd;
+      --card-text-soft: #efdddd;
+      --card-title-text: #fff8f8;
+      --card-stat-text: #fff5f5;
     }
 
     html, body {
       margin: 0;
       padding: 0;
       background: var(--bg-main);
-      color: var(--text-main);
+      color: var(--editor-text);
       font-family: "Noto Sans KR", sans-serif;
     }
 
@@ -74,13 +85,13 @@
       font-size: 22px;
       font-weight: 800;
       letter-spacing: 1px;
-      color: var(--text-white);
+      color: var(--editor-white);
     }
 
     .site-sub {
       margin-top: 6px;
       font-size: 13px;
-      color: var(--text-soft);
+      color: var(--editor-soft);
     }
 
     .layout {
@@ -106,27 +117,27 @@
     .editor h2 {
       margin: 0 0 8px;
       font-size: 20px;
-      color: var(--text-white);
+      color: var(--editor-white);
     }
 
     .editor-desc {
       margin: 0 0 18px;
       font-size: 13px;
       line-height: 1.6;
-      color: var(--text-soft);
+      color: var(--editor-soft);
     }
 
     .form-section {
       margin-bottom: 18px;
       padding: 14px;
-      border: 1px solid var(--section-border);
+      border: 1px solid var(--editor-section-border);
       border-radius: 10px;
-      background: var(--section-bg);
+      background: var(--editor-section-bg);
     }
 
     .form-section-title {
       margin: 0 0 12px;
-      color: var(--accent);
+      color: var(--editor-accent);
       font-size: 12px;
       font-weight: 800;
       letter-spacing: 1px;
@@ -145,7 +156,7 @@
       margin-bottom: 6px;
       font-size: 12px;
       font-weight: 700;
-      color: #f5dfdf;
+      color: var(--editor-label);
     }
 
     input[type="text"],
@@ -153,8 +164,8 @@
     input[type="file"],
     input[type="color"] {
       width: 100%;
-      border: 1px solid #5c1818;
-      background: #0f0303;
+      border: 1px solid var(--editor-input-border);
+      background: var(--editor-input-bg);
       color: #f5e8e8;
       border-radius: 8px;
       padding: 10px 12px;
@@ -187,7 +198,7 @@
 
     .action-button {
       width: 100%;
-      border: 1px solid var(--accent-soft);
+      border: 1px solid var(--editor-input-border);
       background: linear-gradient(to bottom, rgba(255, 45, 45, 0.16), rgba(255, 45, 45, 0.08));
       color: #fff5f5;
       border-radius: 10px;
@@ -210,7 +221,7 @@
     .action-status {
       margin-top: 10px;
       font-size: 12px;
-      color: var(--text-soft);
+      color: var(--editor-soft);
       min-height: 18px;
     }
 
@@ -261,7 +272,7 @@
 
     .secret {
       text-align: center;
-      color: var(--accent);
+      color: var(--card-accent);
       font-size: 10px;
       line-height: 1;
       letter-spacing: 2.6px;
@@ -272,7 +283,7 @@
     .name {
       margin: 0;
       text-align: center;
-      color: var(--text-white);
+      color: var(--card-text-white);
       font-size: 24px;
       line-height: 1.05;
       letter-spacing: 1.1px;
@@ -283,8 +294,8 @@
       display: table;
       margin: 11px auto 17px;
       padding: 6px 10px 5px;
-      color: var(--accent);
-      border: 1px solid var(--accent-soft);
+      color: var(--card-accent);
+      border: 1px solid var(--card-accent-soft);
       border-radius: 2px;
       font-size: 10px;
       line-height: 1;
@@ -302,7 +313,7 @@
     }
 
     .panel-title {
-      color: #fff8f8;
+      color: var(--card-accent);
       font-size: 10px;
       line-height: 1;
       letter-spacing: 1.5px;
@@ -312,7 +323,7 @@
 
     .panel p {
       margin: 0;
-      color: var(--text-body);
+      color: var(--card-text-body);
       font-size: 11px;
       line-height: 1.72;
       font-weight: 400;
@@ -340,7 +351,7 @@
     }
 
     .stat-label {
-      color: var(--accent);
+      color: var(--card-accent);
       font-size: 9px;
       line-height: 1;
       letter-spacing: 1px;
@@ -349,7 +360,7 @@
     }
 
     .stat-value {
-      color: #fff5f5;
+      color: var(--card-stat-text);
       font-size: 12px;
       line-height: 1.25;
       font-weight: 500;
@@ -358,8 +369,8 @@
     .section-head {
       margin: 14px 0 10px;
       padding-top: 8px;
-      border-top: 1px solid var(--accent-line);
-      color: #fff5f5;
+      border-top: 1px solid var(--card-accent-line);
+      color: var(--card-accent);
       font-size: 11px;
       line-height: 1.4;
       font-weight: 700;
@@ -381,7 +392,7 @@
     }
 
     .mini-title {
-      color: var(--accent);
+      color: var(--card-accent);
       font-size: 10px;
       line-height: 1;
       letter-spacing: 1px;
@@ -391,7 +402,7 @@
 
     .mini p {
       margin: 0;
-      color: #efdddd;
+      color: var(--card-text-soft);
       font-size: 11px;
       line-height: 1.68;
       word-break: keep-all;
@@ -400,7 +411,7 @@
 
     .copyright {
       text-align: center;
-      color: var(--accent);
+      color: var(--card-accent);
       font-size: 9px;
       line-height: 1;
       letter-spacing: 2.2px;
@@ -703,25 +714,25 @@
     const textColorInput = document.getElementById("textColorInput");
 
     accentColorInput.addEventListener("input", function () {
-      root.style.setProperty("--accent", this.value);
-      root.style.setProperty("--accent-line", this.value);
-      root.style.setProperty("--accent-soft", this.value);
+      root.style.setProperty("--card-accent", this.value);
+      root.style.setProperty("--card-accent-line", this.value);
+      root.style.setProperty("--card-accent-soft", this.value);
       root.style.setProperty("--card-top-border", this.value);
       root.style.setProperty("--stat-border", this.value);
+      root.style.setProperty("--panel-border", this.value);
     });
 
     cardBgInput.addEventListener("input", function () {
       root.style.setProperty("--card-bg", this.value);
-      root.style.setProperty("--editor-bg", this.value);
     });
 
     panelBgInput.addEventListener("input", function () {
       root.style.setProperty("--panel-bg", this.value);
-      root.style.setProperty("--section-bg", this.value);
     });
 
     textColorInput.addEventListener("input", function () {
-      root.style.setProperty("--text-body", this.value);
+      root.style.setProperty("--card-text-body", this.value);
+      root.style.setProperty("--card-text-soft", this.value);
     });
 
     const savePngButton = document.getElementById("savePngButton");
