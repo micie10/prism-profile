@@ -13,19 +13,51 @@
       box-sizing: border-box;
     }
 
+    :root {
+      --bg-main: #070707;
+      --bg-grad-top: rgba(120, 20, 20, 0.15);
+      --bg-grad-bottom: #050505;
+
+      --editor-bg: #120405;
+      --editor-border: #321010;
+      --section-bg: #180607;
+      --section-border: #431414;
+
+      --card-bg: #120304;
+      --card-border: #2e0909;
+      --card-top-border: #7e1717;
+
+      --panel-bg: #180607;
+      --panel-border: #4a1212;
+      --stat-border: #931818;
+
+      --accent: #ff2d2d;
+      --accent-soft: #a31717;
+      --accent-line: #df2020;
+
+      --text-main: #f3e9e9;
+      --text-soft: #caa8a8;
+      --text-white: #fff7f7;
+      --text-body: #f0dddd;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     html, body {
       margin: 0;
       padding: 0;
-      background: #070707;
-      color: #f3e9e9;
+      background: var(--bg-main);
+      color: var(--text-main);
       font-family: "Noto Sans KR", sans-serif;
     }
 
     body {
       min-height: 100vh;
       background:
-        radial-gradient(circle at top, rgba(120, 20, 20, 0.15), transparent 25%),
-        linear-gradient(to bottom, #0b0b0b, #050505);
+        radial-gradient(circle at top, var(--bg-grad-top), transparent 25%),
+        linear-gradient(to bottom, #0b0b0b, var(--bg-grad-bottom));
     }
 
     .site-header {
@@ -45,13 +77,13 @@
       font-size: 22px;
       font-weight: 800;
       letter-spacing: 1px;
-      color: #fff3f3;
+      color: var(--text-white);
     }
 
     .site-sub {
       margin-top: 6px;
       font-size: 13px;
-      color: #caa8a8;
+      color: var(--text-soft);
     }
 
     .layout {
@@ -65,8 +97,8 @@
     }
 
     .editor {
-      background: #120405;
-      border: 1px solid #321010;
+      background: var(--editor-bg);
+      border: 1px solid var(--editor-border);
       border-radius: 14px;
       padding: 18px;
       box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
@@ -77,27 +109,27 @@
     .editor h2 {
       margin: 0 0 8px;
       font-size: 20px;
-      color: #fff3f3;
+      color: var(--text-white);
     }
 
     .editor-desc {
       margin: 0 0 18px;
       font-size: 13px;
       line-height: 1.6;
-      color: #c8a5a5;
+      color: var(--text-soft);
     }
 
     .form-section {
       margin-bottom: 18px;
       padding: 14px;
-      border: 1px solid #431414;
+      border: 1px solid var(--section-border);
       border-radius: 10px;
-      background: #180607;
+      background: var(--section-bg);
     }
 
     .form-section-title {
       margin: 0 0 12px;
-      color: #ff3636;
+      color: var(--accent);
       font-size: 12px;
       font-weight: 800;
       letter-spacing: 1px;
@@ -121,7 +153,8 @@
 
     input[type="text"],
     textarea,
-    input[type="file"] {
+    input[type="file"],
+    input[type="color"] {
       width: 100%;
       border: 1px solid #5c1818;
       background: #0f0303;
@@ -130,6 +163,12 @@
       padding: 10px 12px;
       font-family: inherit;
       font-size: 13px;
+    }
+
+    input[type="color"] {
+      padding: 6px;
+      height: 44px;
+      cursor: pointer;
     }
 
     textarea {
@@ -157,9 +196,9 @@
 
     .card {
       width: 318px;
-      background: #120304;
-      border: 1px solid #2e0909;
-      border-top: 1px solid #7e1717;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-top: 1px solid var(--card-top-border);
       border-radius: 10px;
       overflow: hidden;
       box-shadow:
@@ -183,13 +222,13 @@
     }
 
     .content {
-      background: #120304;
+      background: var(--card-bg);
       padding: 10px 14px 14px;
     }
 
     .secret {
       text-align: center;
-      color: #ff2727;
+      color: var(--accent);
       font-size: 10px;
       line-height: 1;
       letter-spacing: 2.6px;
@@ -200,7 +239,7 @@
     .name {
       margin: 0;
       text-align: center;
-      color: #fff7f7;
+      color: var(--text-white);
       font-size: 24px;
       line-height: 1.05;
       letter-spacing: 1.1px;
@@ -211,8 +250,8 @@
       display: table;
       margin: 11px auto 17px;
       padding: 6px 10px 5px;
-      color: #ff3030;
-      border: 1px solid #a31717;
+      color: var(--accent);
+      border: 1px solid var(--accent-soft);
       border-radius: 2px;
       font-size: 10px;
       line-height: 1;
@@ -221,8 +260,8 @@
     }
 
     .panel {
-      background: #180607;
-      border: 1px solid #4a1212;
+      background: var(--panel-bg);
+      border: 1px solid var(--panel-border);
       border-radius: 6px;
       padding: 12px 12px 13px;
       margin-bottom: 12px;
@@ -240,7 +279,7 @@
 
     .panel p {
       margin: 0;
-      color: #f0dddd;
+      color: var(--text-body);
       font-size: 11px;
       line-height: 1.72;
       font-weight: 400;
@@ -256,8 +295,8 @@
     }
 
     .stat {
-      background: #180607;
-      border: 1px solid #931818;
+      background: var(--panel-bg);
+      border: 1px solid var(--stat-border);
       border-radius: 6px;
       min-height: 73px;
       text-align: center;
@@ -268,7 +307,7 @@
     }
 
     .stat-label {
-      color: #ff2d2d;
+      color: var(--accent);
       font-size: 9px;
       line-height: 1;
       letter-spacing: 1px;
@@ -286,7 +325,7 @@
     .section-head {
       margin: 14px 0 10px;
       padding-top: 8px;
-      border-top: 1px solid #df2020;
+      border-top: 1px solid var(--accent-line);
       color: #fff5f5;
       font-size: 11px;
       line-height: 1.4;
@@ -301,15 +340,15 @@
     }
 
     .mini {
-      background: #180607;
-      border: 1px solid #4a1212;
+      background: var(--panel-bg);
+      border: 1px solid var(--panel-border);
       border-radius: 6px;
       padding: 11px 11px 12px;
       min-height: 82px;
     }
 
     .mini-title {
-      color: #ff2b2b;
+      color: var(--accent);
       font-size: 10px;
       line-height: 1;
       letter-spacing: 1px;
@@ -328,13 +367,13 @@
 
     .copyright {
       text-align: center;
-      color: #ff2b2b;
+      color: var(--accent);
       font-size: 9px;
       line-height: 1;
       letter-spacing: 2.2px;
       font-weight: 700;
       padding: 14px 0 16px;
-      background: #120304;
+      background: var(--card-bg);
     }
 
     .helper {
@@ -385,9 +424,32 @@
     <section class="editor">
       <h2>프로필 편집기</h2>
       <p class="editor-desc">
-        왼쪽 입력칸에 내용을 넣으면 오른쪽 카드에 바로 반영됩니다.
-        처음에는 텍스트 수정과 이미지 업로드만 되는 기본형입니다.
+        원하는 항목을 입력하고 색상도 직접 바꿔보세요.
       </p>
+
+      <div class="form-section">
+        <h3 class="form-section-title">색상 설정</h3>
+
+        <div class="field">
+          <label for="accentColorInput">포인트 색상</label>
+          <input type="color" id="accentColorInput" value="#ff2d2d" />
+        </div>
+
+        <div class="field">
+          <label for="cardBgInput">카드 배경 색상</label>
+          <input type="color" id="cardBgInput" value="#120304" />
+        </div>
+
+        <div class="field">
+          <label for="panelBgInput">박스 배경 색상</label>
+          <input type="color" id="panelBgInput" value="#180607" />
+        </div>
+
+        <div class="field">
+          <label for="textColorInput">본문 글자 색상</label>
+          <input type="color" id="textColorInput" value="#f0dddd" />
+        </div>
+      </div>
 
       <div class="form-section">
         <h3 class="form-section-title">기본 정보</h3>
@@ -399,17 +461,17 @@
 
         <div class="field">
           <label for="secretInput">상단 문구</label>
-          <input type="text" id="secretInput" value="PRISM TOP SECRET ASSET" />
+          <input type="text" id="secretInput" value="" />
         </div>
 
         <div class="field">
           <label for="nameInput">이름</label>
-          <input type="text" id="nameInput" value="NOVA" />
+          <input type="text" id="nameInput" value="" />
         </div>
 
         <div class="field">
           <label for="tagInput">태그</label>
-          <input type="text" id="tagInput" value="[ A - C - NOVA / 노바 ]" />
+          <input type="text" id="tagInput" value="" />
         </div>
       </div>
 
@@ -418,21 +480,17 @@
 
         <div class="field">
           <label for="physicalInput">PHYSICAL DESCRIPTION</label>
-          <textarea id="physicalInput">162cm의 아담한 키와 왜소하고 갸냘픈 체구를 지녔으며, 보호본능을 자극하는 인상을 풍깁니다.
-긴 흑발을 로우 트윈테일로 묶어 늘어뜨렸고, 처피뱅 앞머리가 개성을 더합니다.
-창백한 피부와 형광 연두색 눈동자, 살짝 올라간 눈꼬리가 어우러져 신비롭고 날카로운 분위기를 자아냅니다.
-의상은 레드&블랙 고스펑크 스타일을 기반으로, 블랙 망사 탑 위에 붉은 십자가 장식의 가죽 코르셋을 착용했습니다.
-하의는 레드와 블랙 체크 미니 스커트에 가죽 벨트와 체인 장식을 더했으며, 체크 초커와 십자가 목걸이로 강렬하면서도 반항적인 분위기를 완성합니다.</textarea>
+          <textarea id="physicalInput"></textarea>
         </div>
 
         <div class="field">
           <label for="ageInput">AGE / GEN</label>
-          <input type="text" id="ageInput" value="26 / Female" />
+          <input type="text" id="ageInput" value="" />
         </div>
 
         <div class="field">
           <label for="rankInput">RANK / TYPE</label>
-          <input type="text" id="rankInput" value="A-Rank / Combat" />
+          <input type="text" id="rankInput" value="" />
         </div>
       </div>
 
@@ -441,42 +499,32 @@
 
         <div class="field">
           <label for="relationTitleInput">관계 섹션 제목</label>
-          <input type="text" id="relationTitleInput" value="WITH 시엘 : 나, 마음에 든다." />
+          <input type="text" id="relationTitleInput" value="" />
         </div>
 
         <div class="field">
           <label for="relationBodyInput">관계 섹션 본문</label>
-          <textarea id="relationBodyInput">임무를 지독하게 깔끔한 단숨에 끝내버린 시엘의 힘은, 세상 모든 게 지루하던 노바의 눈을 단번에 사로잡기에 충분했습니다.
-앞으로 곁에 누군가 전장을 엎어놓고 만들던 과거의 전투 타입 파트너들과는 전혀 달랐습니다.
-그 정교하고 무결한 능력 운용을 본 순간, 수년간 이어져 온 지독한 공허함이 단숨에 날아가는 듯했습니다.</textarea>
+          <textarea id="relationBodyInput"></textarea>
         </div>
 
         <div class="field">
           <label for="skillTitleInput">능력 섹션 제목</label>
-          <input type="text" id="skillTitleInput" value="고밀도 플라즈마 방출 (High-Density Plasma)" />
+          <input type="text" id="skillTitleInput" value="" />
         </div>
 
         <div class="field">
           <label for="skillBodyInput">능력 섹션 본문</label>
-          <textarea id="skillBodyInput">공기 중의 입자를 초고온으로 순식간에 가열하여, 고체·액체·기체를 넘어선 제4의 물질 상태인 플라즈마를 생성하고 자유자재로 방출합니다.
-일반적인 화염 능력과는 궤를 달리하는 초고열의 압도적인 파괴력을 자랑합니다.</textarea>
+          <textarea id="skillBodyInput"></textarea>
         </div>
 
         <div class="field">
           <label for="historyTitleInput">서사 섹션 제목</label>
-          <input type="text" id="historyTitleInput" value="서사 / 특징 (History)" />
+          <input type="text" id="historyTitleInput" value="" />
         </div>
 
         <div class="field">
-          <label for="historyBody1Input">서사 첫 번째 박스</label>
-          <textarea id="historyBody1Input">어린 시절에는 스스로 통제하지 못하고 흘러나오는 강렬한 열기 때문에, 의도치 않게 주변 물건을 태워 늘 혼자 지냈습니다.
-뒤틀린 불안이 자라면서, 그는 늘 흔들림 없는 표정을 유지하려 애썼습니다.</textarea>
-        </div>
-
-        <div class="field">
-          <label for="historyBody2Input">서사 두 번째 박스</label>
-          <textarea id="historyBody2Input">복잡한 전장을 지나 돌아온 뒤에도, 아무도 등을 두드려주지 않는 정적 속에서 공허함은 더 짙어졌습니다.
-그럼에도 그는 오늘도 자신의 방식대로 앞으로 나아갑니다.</textarea>
+          <label for="historyBodyInput">서사 본문</label>
+          <textarea id="historyBodyInput"></textarea>
         </div>
       </div>
 
@@ -485,18 +533,17 @@
 
         <div class="field">
           <label for="favorInput">FAVOR</label>
-          <textarea id="favorInput">탄산 음료, 시끄러운 음악, 예쁜 액세서리</textarea>
+          <textarea id="favorInput"></textarea>
         </div>
 
         <div class="field">
           <label for="hateInput">HATE</label>
-          <textarea id="hateInput">눅눅한 날씨, 비효율적인 태도</textarea>
+          <textarea id="hateInput"></textarea>
         </div>
       </div>
 
       <p class="helper">
-        GitHub에서 지금은 이 파일 하나만 수정해도 됩니다.
-        나중에 익숙해지면 CSS와 JavaScript를 따로 분리하면 됩니다.
+        빈칸으로 두면 오른쪽 카드에도 비어 있는 상태로 표시됩니다.
       </p>
     </section>
 
@@ -506,69 +553,55 @@
           <div class="hero" id="previewHero"></div>
 
           <div class="content">
-            <div class="secret" id="previewSecret">PRISM TOP SECRET ASSET</div>
+            <div class="secret" id="previewSecret"></div>
 
-            <h1 class="name" id="previewName">NOVA</h1>
+            <h1 class="name" id="previewName"></h1>
 
-            <div class="tag" id="previewTag">[ A - C - NOVA / 노바 ]</div>
+            <div class="tag" id="previewTag"></div>
 
             <section class="panel">
               <div class="panel-title">PHYSICAL DESCRIPTION</div>
-              <p id="previewPhysical">
-                162cm의 아담한 키와 왜소하고 갸냘픈 체구를 지녔으며, 보호본능을 자극하는 인상을 풍깁니다.
-              </p>
+              <p id="previewPhysical"></p>
             </section>
 
             <div class="stat-grid">
               <div class="stat">
                 <div class="stat-label">AGE / GEN</div>
-                <div class="stat-value" id="previewAge">26 / Female</div>
+                <div class="stat-value" id="previewAge"></div>
               </div>
 
               <div class="stat">
                 <div class="stat-label">RANK / TYPE</div>
-                <div class="stat-value" id="previewRank">A-Rank / Combat</div>
+                <div class="stat-value" id="previewRank"></div>
               </div>
             </div>
 
             <section class="panel">
-              <div class="panel-title" id="previewRelationTitle">WITH 시엘 : 나, 마음에 든다.</div>
-              <p id="previewRelationBody">
-                임무를 지독하게 깔끔한 단숨에 끝내버린 시엘의 힘은, 세상 모든 게 지루하던 노바의 눈을 단번에 사로잡기에 충분했습니다.
-              </p>
+              <div class="panel-title" id="previewRelationTitle"></div>
+              <p id="previewRelationBody"></p>
             </section>
 
-            <div class="section-head" id="previewSkillTitle">고밀도 플라즈마 방출 (High-Density Plasma)</div>
+            <div class="section-head" id="previewSkillTitle"></div>
 
             <section class="panel">
-              <p id="previewSkillBody">
-                공기 중의 입자를 초고온으로 순식간에 가열하여, 고체·액체·기체를 넘어선 제4의 물질 상태인 플라즈마를 생성하고 자유자재로 방출합니다.
-              </p>
+              <p id="previewSkillBody"></p>
             </section>
 
-            <div class="section-head" id="previewHistoryTitle">서사 / 특징 (History)</div>
+            <div class="section-head" id="previewHistoryTitle"></div>
 
             <section class="panel">
-              <p id="previewHistoryBody1">
-                어린 시절에는 스스로 통제하지 못하고 흘러나오는 강렬한 열기 때문에, 의도치 않게 주변 물건을 태워 늘 혼자 지냈습니다.
-              </p>
-            </section>
-
-            <section class="panel">
-              <p id="previewHistoryBody2">
-                복잡한 전장을 지나 돌아온 뒤에도, 아무도 등을 두드려주지 않는 정적 속에서 공허함은 더 짙어졌습니다.
-              </p>
+              <p id="previewHistoryBody"></p>
             </section>
 
             <div class="bottom-grid">
               <section class="mini">
                 <div class="mini-title">FAVOR</div>
-                <p id="previewFavor">탄산 음료, 시끄러운 음악, 예쁜 액세서리</p>
+                <p id="previewFavor"></p>
               </section>
 
               <section class="mini">
                 <div class="mini-title">HATE</div>
-                <p id="previewHate">눅눅한 날씨, 비효율적인 태도</p>
+                <p id="previewHate"></p>
               </section>
             </div>
           </div>
@@ -603,8 +636,7 @@
     bindText("skillTitleInput", "previewSkillTitle");
     bindText("skillBodyInput", "previewSkillBody");
     bindText("historyTitleInput", "previewHistoryTitle");
-    bindText("historyBody1Input", "previewHistoryBody1");
-    bindText("historyBody2Input", "previewHistoryBody2");
+    bindText("historyBodyInput", "previewHistoryBody");
     bindText("favorInput", "previewFavor");
     bindText("hateInput", "previewHate");
 
@@ -623,6 +655,35 @@
           '") center top / cover no-repeat';
       };
       reader.readAsDataURL(file);
+    });
+
+    const root = document.documentElement;
+
+    const accentColorInput = document.getElementById("accentColorInput");
+    const cardBgInput = document.getElementById("cardBgInput");
+    const panelBgInput = document.getElementById("panelBgInput");
+    const textColorInput = document.getElementById("textColorInput");
+
+    accentColorInput.addEventListener("input", function () {
+      root.style.setProperty("--accent", this.value);
+      root.style.setProperty("--accent-line", this.value);
+      root.style.setProperty("--accent-soft", this.value);
+      root.style.setProperty("--card-top-border", this.value);
+      root.style.setProperty("--stat-border", this.value);
+    });
+
+    cardBgInput.addEventListener("input", function () {
+      root.style.setProperty("--card-bg", this.value);
+      root.style.setProperty("--editor-bg", this.value);
+    });
+
+    panelBgInput.addEventListener("input", function () {
+      root.style.setProperty("--panel-bg", this.value);
+      root.style.setProperty("--section-bg", this.value);
+    });
+
+    textColorInput.addEventListener("input", function () {
+      root.style.setProperty("--text-body", this.value);
     });
   </script>
 </body>
