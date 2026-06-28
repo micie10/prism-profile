@@ -1020,7 +1020,7 @@
         // HISTORY HEIGHT
         if (histTitleText) calcY += 26;
         const histTextH = measureTextH(tempCtx, histBodyText, px(INNER_W-24), lineH11, bodyFont11);
-        const histPH = 12+(histTextH/SCALE)+13;
+        const histPH = 20+(histTextH/SCALE)+13;
         calcY += histPH + 12;
 
         // FAVOR / HATE HEIGHT (두 박스 중 더 높게 확장된 높이를 채택)
@@ -1202,7 +1202,7 @@
         curY = drawSectionHead(PAD_X, curY+4, INNER_W, histTitleText, histLeftLine, histRightLine);
         function drawHistPanel(x, y, w, body) {
           const textH = measureTextH(ctx, body, px(w-24), lineH11, bodyFont11);
-          const pH = 12+(textH/SCALE)+13;
+          const pH = 20+(textH/SCALE)+13;
           fillRoundRect(ctx, x, y, w, pH, 6, histBg, histBorder, px(1));
           drawText(ctx, body, px(x+12), px(y+20), px(w-24), lineH11, textBody, bodyFont11);
           return y+pH+12;
