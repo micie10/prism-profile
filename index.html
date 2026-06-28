@@ -955,9 +955,13 @@
               const imgW = img.naturalWidth, imgH = img.naturalHeight;
               const targetW = px(CARD_W), targetH = px(HERO_H);
               const scale = Math.max(targetW / imgW, targetH / imgH);
-              const dW = imgW * scale, dH = imgH * scale;
-              const dX = (targetW - dW) / 2;
-              ctx.drawImage(img, dX, 0, dW, dH);
+const dW = imgW * scale;
+const dH = imgH * scale;
+
+const dX = (targetW - dW) / 2;
+const dY = (targetH - dH) / 2;
+
+ctx.drawImage(img, dX, dY, dW, dH);
               resolve();
             };
             img.onerror = resolve;
@@ -1079,7 +1083,7 @@
         curY = drawPhysPanel(PAD_X, curY, INNER_W, physicalText);
 
         const statW = (INNER_W-10)/2;
-        function drawStat(label, val, x, y, w, h) {
+        ctx.fillText(val, px(x+w/2), px(y+42));
           fillRoundRect(ctx, x, y, w, h, 6, statBg, statBorder, px(1));
           ctx.font = `700 ${px(9)}px "Noto Sans KR",sans-serif`;
           ctx.fillStyle = statAccent; ctx.textAlign = "center";
