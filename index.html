@@ -31,8 +31,10 @@
       --history-line-left: #df2020;
       --history-line-right: #df2020;
       --stat-accent: #ff2d2d;
+      --favor-title-color: #ff2d2d;
       --favor-accent: #ff2d2d;
       --favor-bg: transparent;
+      --hate-title-color: #ff2d2d;
       --hate-accent: #ff2d2d;
       --hate-bg: transparent;
     }
@@ -345,12 +347,14 @@
       border: 1px solid var(--box-border);
     }
 
+    /* PHYSICAL 언더라인을 끝까지 채우기 위한 확장 구조 */
     .panel-physical .panel-title {
       color: var(--card-text-white);
-      display: inline-block;
+      display: block;
       margin-bottom: 8px;
       padding: 0 0 6px 0;
       border-bottom: 1px solid var(--physical-line);
+      width: 100%;
     }
 
     .panel-relation {
@@ -498,7 +502,7 @@
       background: var(--favor-bg);
     }
 
-    .mini-favor .mini-title { color: var(--favor-accent); }
+    .mini-favor .mini-title { color: var(--favor-title-color); }
     .mini-favor p { color: var(--favor-accent); }
 
     .mini-hate {
@@ -506,7 +510,7 @@
       background: var(--hate-bg);
     }
 
-    .mini-hate .mini-title { color: var(--hate-accent); }
+    .mini-hate .mini-title { color: var(--hate-title-color); }
     .mini-hate p { color: var(--hate-accent); }
 
     .copyright {
@@ -702,35 +706,43 @@
       </div>
 
       <div class="form-section">
-        <h3 class="form-section-title">기호</h3>
+        <h3 class="form-section-title">기호 (FAVOR / HATE)</h3>
 
         <div class="field">
-          <label for="favorInput">FAVOR</label>
+          <label for="favorInput">FAVOR 본문</label>
           <textarea id="favorInput"></textarea>
           <div class="color-row">
             <div class="color-cell">
-              <label for="favorColorInput">텍스트 색상</label>
-              <input type="color" id="favorColorInput" value="#ff2d2d" />
+              <label for="favorTitleColorInput">제목 색상 (FAVOR)</label>
+              <input type="color" id="favorTitleColorInput" value="#ff2d2d" />
             </div>
             <div class="color-cell">
-              <label for="favorBgColorInput">박스 배경색</label>
-              <input type="color" id="favorBgColorInput" value="#000000" />
+              <label for="favorColorInput">본문 텍스트 색상</label>
+              <input type="color" id="favorColorInput" value="#ff2d2d" />
             </div>
+          </div>
+          <div class="inline-color" style="margin-top: 8px;">
+            <label for="favorBgColorInput">박스 배경색</label>
+            <input type="color" id="favorBgColorInput" value="#000000" />
           </div>
         </div>
 
         <div class="field">
-          <label for="hateInput">HATE</label>
+          <label for="hateInput">HATE 본문</label>
           <textarea id="hateInput"></textarea>
           <div class="color-row">
             <div class="color-cell">
-              <label for="hateColorInput">텍스트 색상</label>
-              <input type="color" id="hateColorInput" value="#ff2d2d" />
+              <label for="hateTitleColorInput">제목 색상 (HATE)</label>
+              <input type="color" id="hateTitleColorInput" value="#ff2d2d" />
             </div>
             <div class="color-cell">
-              <label for="hateBgColorInput">박스 배경색</label>
-              <input type="color" id="hateBgColorInput" value="#000000" />
+              <label for="hateColorInput">본문 텍스트 색상</label>
+              <input type="color" id="hateColorInput" value="#ff2d2d" />
             </div>
+          </div>
+          <div class="inline-color" style="margin-top: 8px;">
+            <label for="hateBgColorInput">박스 배경색</label>
+            <input type="color" id="hateBgColorInput" value="#000000" />
           </div>
         </div>
       </div>
@@ -914,8 +926,12 @@
     bindColor("skillRightLineColorInput", ["--skill-line-right"]);
     bindColor("historyLeftLineColorInput",  ["--history-line-left"]);
     bindColor("historyRightLineColorInput", ["--history-line-right"]);
+    
+    // FAVOR / HATE 컬러 바인딩 구조 추가
+    bindColor("favorTitleColorInput", ["--favor-title-color"]);
     bindColor("favorColorInput", ["--favor-accent"]);
     bindColor("favorBgColorInput", ["--favor-bg"]);
+    bindColor("hateTitleColorInput", ["--hate-title-color"]);
     bindColor("hateColorInput",  ["--hate-accent"]);
     bindColor("hateBgColorInput", ["--hate-bg"]);
 
@@ -934,13 +950,12 @@
           });
         }
 
-        // PC 브라우저 확대/축소 및 스크롤 위치 변수를 제거하고 카드 자체 크기(width: 380)만 정확하게 타겟팅
         const canvas = await html2canvas(card, {
           scale: 2,
           backgroundColor: "#000000",
           useCORS: true,
           logging: false,
-          width: 380, // 고정 규격으로 강제 차단
+          width: 380,
           windowWidth: 380,
           scrollX: 0,
           scrollY: 0,
