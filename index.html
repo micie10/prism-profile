@@ -7,6 +7,7 @@
   <link rel="preconnect" href="[fonts.googleapis.com](https://fonts.googleapis.com)">
   <link rel="preconnect" href="[fonts.gstatic.com](https://fonts.gstatic.com)" crossorigin>
   <link href="[fonts.googleapis.com](https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;800&display=swap)" rel="stylesheet">
+  <script src="[cdn.jsdelivr.net](https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js)"></script>
 
   <style>
     * {
@@ -39,10 +40,6 @@
       --text-soft: #caa8a8;
       --text-white: #fff7f7;
       --text-body: #f0dddd;
-    }
-
-    * {
-      box-sizing: border-box;
     }
 
     html, body {
@@ -179,6 +176,42 @@
 
     input[type="file"] {
       padding: 8px;
+    }
+
+    .action-row {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .action-button {
+      width: 100%;
+      border: 1px solid var(--accent-soft);
+      background: linear-gradient(to bottom, rgba(255, 45, 45, 0.16), rgba(255, 45, 45, 0.08));
+      color: #fff5f5;
+      border-radius: 10px;
+      padding: 12px 14px;
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    .action-button:hover {
+      filter: brightness(1.08);
+    }
+
+    .action-button:active {
+      transform: translateY(1px);
+    }
+
+    .action-status {
+      margin-top: 10px;
+      font-size: 12px;
+      color: var(--text-soft);
+      min-height: 18px;
     }
 
     .preview-area {
@@ -427,6 +460,11 @@
         원하는 항목을 입력하고 색상도 직접 바꿔보세요.
       </p>
 
+      <div class="action-row">
+        <button type="button" class="action-button" id="savePngButton">PNG 저장</button>
+        <div class="action-status" id="actionStatus"></div>
+      </div>
+
       <div class="form-section">
         <h3 class="form-section-title">색상 설정</h3>
 
@@ -549,7 +587,7 @@
 
     <section class="preview-area">
       <div class="wrap">
-        <div class="card">
+        <div class="card" id="profileCard">
           <div class="hero" id="previewHero"></div>
 
           <div class="content">
@@ -684,6 +722,32 @@
 
     textColorInput.addEventListener("input", function () {
       root.style.setProperty("--text-body", this.value);
+    });
+
+    const savePngButton = document.getElementById("savePngButton");
+    const actionStatus = document.getElementById("actionStatus");
+    const profileCard = document.getElementById("profileCard");
+
+    savePngButton.addEventListener("click", async () => {
+      try {
+        actionStatus.textContent = "PNG를 저장하는 중입니다...";
+
+        const canvas = await html2canvas(profileCard, {
+          backgroundColor: null,
+          scale: 2,
+          useCORS: true
+        });
+
+        const link = document.createElement("a");
+        link.download = "prism-profile-card.png";
+        link.href = canvas.toDataURL("image/png");
+        link.click();
+
+        actionStatus.textContent = "PNG 저장이 완료되었습니다.";
+      } catch (error) {
+        actionStatus.textContent = "PNG 저장 중 오류가 발생했습니다.";
+        console.error(error);
+      }
     });
   </script>
 </body>
