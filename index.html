@@ -8,18 +8,14 @@
   <link rel="preconnect" href="[fonts.googleapis.com](https://fonts.googleapis.com)">
   <link rel="preconnect" href="[fonts.gstatic.com](https://fonts.gstatic.com)" crossorigin>
   <link href="[fonts.googleapis.com](https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;800&display=swap)" rel="stylesheet">
-  <script src="[cdn.jsdelivr.net](https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js)"></script>
 
   <style>
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     :root {
       --bg-main: #070707;
-      --bg-grad-top: rgba(120, 20, 20, 0.15);
+      --bg-grad-top: rgba(120,20,20,0.15);
       --bg-grad-bottom: #050505;
-
       --editor-bg: #120405;
       --editor-border: #321010;
       --editor-section-bg: #180607;
@@ -31,54 +27,43 @@
       --editor-soft: #caa8a8;
       --editor-white: #fff7f7;
       --editor-accent: #ff2d2d;
-
       --card-bg: #120304;
       --card-border: #2e0909;
       --card-top-border: #7e1717;
-
       --card-text-white: #fff7f7;
       --card-text-body: #f0dddd;
       --card-text-soft: #efdddd;
       --card-stat-text: #fff5f5;
-
       --secret-accent: #ff2d2d;
       --tag-accent: #ff2d2d;
       --tag-border: #a31717;
-
       --physical-accent: #ff2d2d;
       --physical-border: #4a1212;
       --physical-bg: #180607;
-
       --relation-accent: #ff2d2d;
       --relation-border: #4a1212;
       --relation-bg: #180607;
-
       --skill-accent: #ff2d2d;
       --skill-border: #4a1212;
       --skill-line: #df2020;
       --skill-bg: #180607;
-
       --history-accent: #ff2d2d;
       --history-border: #4a1212;
       --history-line: #df2020;
       --history-bg: #180607;
-
       --stat-accent: #ff2d2d;
       --stat-border: #931818;
       --stat-bg: #180607;
-
       --favor-accent: #ff2d2d;
       --favor-border: #4a1212;
       --favor-bg: #180607;
-
       --hate-accent: #ff2d2d;
       --hate-border: #4a1212;
       --hate-bg: #180607;
     }
 
     html, body {
-      margin: 0;
-      padding: 0;
+      margin: 0; padding: 0;
       background: var(--bg-main);
       color: var(--editor-text);
       font-family: "Noto Sans KR", sans-serif;
@@ -92,37 +77,27 @@
     }
 
     .site-header {
-      border-bottom: 1px solid rgba(255, 60, 60, 0.15);
-      background: rgba(10, 10, 10, 0.92);
+      border-bottom: 1px solid rgba(255,60,60,0.15);
+      background: rgba(10,10,10,0.92);
       backdrop-filter: blur(6px);
     }
 
     .site-header-inner {
-      max-width: 1480px;
-      margin: 0 auto;
-      padding: 18px 20px;
+      max-width: 1480px; margin: 0 auto; padding: 18px 20px;
     }
 
     .site-title {
-      margin: 0;
-      font-size: 22px;
-      font-weight: 800;
-      letter-spacing: 1px;
-      color: var(--editor-white);
+      margin: 0; font-size: 22px; font-weight: 800;
+      letter-spacing: 1px; color: var(--editor-white);
     }
 
-    .site-sub {
-      margin-top: 6px;
-      font-size: 13px;
-      color: var(--editor-soft);
-    }
+    .site-sub { margin-top: 6px; font-size: 13px; color: var(--editor-soft); }
 
     .layout {
-      max-width: 1480px;
-      margin: 0 auto;
+      max-width: 1480px; margin: 0 auto;
       padding: 24px 20px 40px;
       display: grid;
-      grid-template-columns: 460px minmax(340px, 1fr);
+      grid-template-columns: 480px minmax(340px, 1fr);
       gap: 24px;
       align-items: start;
     }
@@ -132,27 +107,22 @@
       border: 1px solid var(--editor-border);
       border-radius: 14px;
       padding: 18px;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.35);
       position: sticky;
       top: 20px;
+      max-height: calc(100vh - 40px);
+      overflow-y: auto;
     }
 
-    .editor h2 {
-      margin: 0 0 8px;
-      font-size: 20px;
-      color: var(--editor-white);
-    }
+    .editor h2 { margin: 0 0 8px; font-size: 20px; color: var(--editor-white); }
 
     .editor-desc {
-      margin: 0 0 18px;
-      font-size: 13px;
-      line-height: 1.6;
-      color: var(--editor-soft);
+      margin: 0 0 18px; font-size: 13px;
+      line-height: 1.6; color: var(--editor-soft);
     }
 
     .form-section {
-      margin-bottom: 18px;
-      padding: 14px;
+      margin-bottom: 18px; padding: 14px;
       border: 1px solid var(--editor-section-border);
       border-radius: 10px;
       background: var(--editor-section-bg);
@@ -161,29 +131,16 @@
     .form-section-title {
       margin: 0 0 12px;
       color: var(--editor-accent);
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: 1px;
+      font-size: 12px; font-weight: 800; letter-spacing: 1px;
     }
 
-    .field {
-      margin-bottom: 12px;
-    }
-
-    .field:last-child {
-      margin-bottom: 0;
-    }
-
-    .inline-color {
-      margin-top: 8px;
-    }
+    .field { margin-bottom: 12px; }
+    .field:last-child { margin-bottom: 0; }
+    .inline-color { margin-top: 8px; }
 
     label {
-      display: block;
-      margin-bottom: 6px;
-      font-size: 12px;
-      font-weight: 700;
-      color: var(--editor-label);
+      display: block; margin-bottom: 6px;
+      font-size: 12px; font-weight: 700; color: var(--editor-label);
     }
 
     input[type="text"],
@@ -200,56 +157,41 @@
       font-size: 13px;
     }
 
-    input[type="color"] {
-      padding: 6px;
-      height: 44px;
-      cursor: pointer;
-    }
+    input[type="color"] { padding: 6px; height: 44px; cursor: pointer; }
+    textarea { resize: vertical; min-height: 80px; line-height: 1.6; }
+    input[type="file"] { padding: 8px; }
 
-    textarea {
-      resize: vertical;
-      min-height: 100px;
-      line-height: 1.6;
-    }
-
-    input[type="file"] {
-      padding: 8px;
-    }
-
-    .action-row {
+    /* 색상 피커 두 개를 나란히 */
+    .color-row {
       display: grid;
-      grid-template-columns: 1fr;
-      gap: 10px;
-      margin-bottom: 18px;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-top: 8px;
     }
+
+    .color-row .color-cell label { font-size: 11px; }
+
+    .action-row { display: grid; gap: 10px; margin-bottom: 18px; }
 
     .action-button {
       width: 100%;
       border: 1px solid var(--editor-input-border);
-      background: linear-gradient(to bottom, rgba(255, 45, 45, 0.16), rgba(255, 45, 45, 0.08));
+      background: linear-gradient(to bottom, rgba(255,45,45,0.16), rgba(255,45,45,0.08));
       color: #fff5f5;
       border-radius: 10px;
       padding: 12px 14px;
       font-family: inherit;
-      font-size: 13px;
-      font-weight: 700;
+      font-size: 13px; font-weight: 700;
       cursor: pointer;
       transition: 0.2s ease;
     }
 
-    .action-button:hover {
-      filter: brightness(1.08);
-    }
-
-    .action-button:active {
-      transform: translateY(1px);
-    }
+    .action-button:hover { filter: brightness(1.08); }
+    .action-button:active { transform: translateY(1px); }
 
     .action-status {
-      margin-top: 10px;
-      font-size: 12px;
-      color: var(--editor-soft);
-      min-height: 18px;
+      margin-top: 10px; font-size: 12px;
+      color: var(--editor-soft); min-height: 18px;
     }
 
     .preview-area {
@@ -259,12 +201,9 @@
       padding: 0;
     }
 
-    .wrap {
-      width: 100%;
-      display: flex;
-      justify-content: center;
-    }
+    .wrap { width: 100%; display: flex; justify-content: center; }
 
+    /* ── CARD ── */
     .card {
       width: 318px;
       background: var(--card-bg);
@@ -273,265 +212,149 @@
       border-radius: 10px;
       overflow: hidden;
       box-shadow:
-        0 0 0 1px rgba(255, 40, 40, 0.03),
-        0 0 30px rgba(0, 0, 0, 0.45);
+        0 0 0 1px rgba(255,40,40,0.03),
+        0 0 30px rgba(0,0,0,0.45);
     }
 
     .hero {
       position: relative;
-      width: 100%;
-      height: 252px;
+      width: 100%; height: 252px;
       background:
-        linear-gradient(
-          to bottom,
-          rgba(0, 0, 0, 0.00) 0%,
-          rgba(0, 0, 0, 0.08) 55%,
-          rgba(16, 3, 4, 0.72) 86%,
-          rgba(16, 3, 4, 0.98) 100%
+        linear-gradient(to bottom,
+          rgba(0,0,0,0.00) 0%,
+          rgba(0,0,0,0.08) 55%,
+          rgba(16,3,4,0.72) 86%,
+          rgba(16,3,4,0.98) 100%
         ),
-        url("data:image/svg+xml;utf8,<svg xmlns='[w3.org](http://www.w3.org/2000/svg)' width='318' height='252' viewBox='0 0 318 252'><rect width='318' height='252' fill='%23111111'/><text x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%23888888' font-size='24' font-family='Arial'>IMAGE</text></svg>") center top / cover no-repeat;
+        url("data:image/svg+xml;utf8,<svg xmlns='[w3.org](http://www.w3.org/2000/svg)' width='318' height='252' viewBox='0 0 318 252'><rect width='318' height='252' fill='%23111111'/><text x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%23888888' font-size='24' font-family='Arial'>IMAGE</text></svg>")
+        center top / cover no-repeat;
     }
 
-    .content {
-      background: var(--card-bg);
-      padding: 10px 14px 14px;
-    }
+    .content { background: var(--card-bg); padding: 10px 14px 14px; }
 
     .secret {
-      text-align: center;
-      color: var(--secret-accent);
-      font-size: 10px;
-      line-height: 1;
-      letter-spacing: 2.6px;
-      font-weight: 800;
-      margin: 2px 0 10px;
+      text-align: center; color: var(--secret-accent);
+      font-size: 10px; line-height: 1; letter-spacing: 2.6px;
+      font-weight: 800; margin: 2px 0 10px;
     }
 
     .codename {
-      margin: 0;
-      text-align: center;
+      margin: 0; text-align: center;
       color: var(--card-text-white);
-      font-size: 24px;
-      line-height: 1.05;
-      letter-spacing: 1.1px;
-      font-weight: 300;
+      font-size: 24px; line-height: 1.05;
+      letter-spacing: 1.1px; font-weight: 300;
       text-shadow:
         0 0 4px rgba(255,255,255,0.2),
-        0 0 10px rgba(255, 60, 60, 0.35),
-        0 0 18px rgba(255, 60, 60, 0.22);
+        0 0 10px rgba(255,60,60,0.35),
+        0 0 18px rgba(255,60,60,0.22);
     }
 
     .tag {
-      display: table;
-      margin: 11px auto 17px;
+      display: table; margin: 11px auto 17px;
       padding: 6px 10px 5px;
       color: var(--tag-accent);
       border: 1px solid var(--tag-border);
       border-radius: 2px;
-      font-size: 10px;
-      line-height: 1;
-      letter-spacing: 1.1px;
-      background: rgba(255, 0, 0, 0.02);
+      font-size: 10px; line-height: 1; letter-spacing: 1.1px;
+      background: rgba(255,0,0,0.02);
     }
 
     .panel {
-      border-radius: 6px;
-      padding: 12px 12px 13px;
+      border-radius: 6px; padding: 12px 12px 13px;
       margin-bottom: 12px;
-      box-shadow: inset 0 0 0 1px rgba(255, 30, 30, 0.015);
+      box-shadow: inset 0 0 0 1px rgba(255,30,30,0.015);
     }
 
     .panel-title {
-      font-size: 10px;
-      line-height: 1;
-      letter-spacing: 1.5px;
-      font-weight: 800;
-      margin-bottom: 10px;
+      font-size: 10px; line-height: 1;
+      letter-spacing: 1.5px; font-weight: 800; margin-bottom: 10px;
     }
 
     .panel p {
       margin: 0;
       color: var(--card-text-body);
-      font-size: 11px;
-      line-height: 1.72;
-      font-weight: 400;
-      word-break: keep-all;
-      white-space: pre-line;
+      font-size: 11px; line-height: 1.72; font-weight: 400;
+      word-break: keep-all; white-space: pre-line;
     }
 
-    .panel-physical {
-      background: var(--physical-bg);
-      border: 1px solid var(--physical-border);
-    }
+    .panel-physical { background: var(--physical-bg); border: 1px solid var(--physical-border); }
+    .panel-physical .panel-title { color: var(--physical-accent); }
 
-    .panel-physical .panel-title {
-      color: var(--physical-accent);
-    }
+    .panel-relation { background: var(--relation-bg); border: 1px solid var(--relation-border); }
+    .panel-relation .panel-title { color: var(--relation-accent); }
 
-    .panel-relation {
-      background: var(--relation-bg);
-      border: 1px solid var(--relation-border);
-    }
+    .panel-skill { background: var(--skill-bg); border: 1px solid var(--skill-border); }
 
-    .panel-relation .panel-title {
-      color: var(--relation-accent);
-    }
-
-    .panel-skill {
-      background: var(--skill-bg);
-      border: 1px solid var(--skill-border);
-    }
-
-    .panel-history {
-      background: var(--history-bg);
-      border: 1px solid var(--history-border);
-    }
+    .panel-history { background: var(--history-bg); border: 1px solid var(--history-border); }
 
     .stat-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      margin-bottom: 12px;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 10px; margin-bottom: 12px;
     }
 
     .stat {
       background: var(--stat-bg);
       border: 1px solid var(--stat-border);
-      border-radius: 6px;
-      min-height: 73px;
-      text-align: center;
-      padding: 11px 8px 10px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+      border-radius: 6px; min-height: 73px;
+      text-align: center; padding: 11px 8px 10px;
+      display: flex; flex-direction: column; justify-content: center;
     }
 
     .stat-label {
-      color: var(--stat-accent);
-      font-size: 9px;
-      line-height: 1;
-      letter-spacing: 1px;
-      font-weight: 700;
-      margin-bottom: 10px;
+      color: var(--stat-accent); font-size: 9px; line-height: 1;
+      letter-spacing: 1px; font-weight: 700; margin-bottom: 10px;
     }
 
-    .stat-value {
-      color: var(--card-stat-text);
-      font-size: 12px;
-      line-height: 1.25;
-      font-weight: 500;
-    }
+    .stat-value { color: var(--card-stat-text); font-size: 12px; line-height: 1.25; font-weight: 500; }
 
     .section-head {
-      margin: 14px 0 10px;
-      padding-top: 8px;
-      font-size: 11px;
-      line-height: 1.4;
-      font-weight: 700;
+      margin: 14px 0 10px; padding-top: 8px;
+      font-size: 11px; line-height: 1.4; font-weight: 700;
     }
 
-    .section-head-skill {
-      border-top: 1px solid var(--skill-line);
-      color: var(--skill-accent);
-    }
+    .section-head-skill { border-top: 1px solid var(--skill-line); color: var(--skill-accent); }
+    .section-head-history { border-top: 1px solid var(--history-line); color: var(--history-accent); }
 
-    .section-head-history {
-      border-top: 1px solid var(--history-line);
-      color: var(--history-accent);
-    }
+    .bottom-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 2px; }
 
-    .bottom-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      margin-top: 2px;
-    }
-
-    .mini {
-      border-radius: 6px;
-      padding: 11px 11px 12px;
-      min-height: 82px;
-    }
+    .mini { border-radius: 6px; padding: 11px 11px 12px; min-height: 82px; }
 
     .mini-title {
-      font-size: 10px;
-      line-height: 1;
-      letter-spacing: 1px;
-      font-weight: 800;
-      margin-bottom: 10px;
+      font-size: 10px; line-height: 1; letter-spacing: 1px;
+      font-weight: 800; margin-bottom: 10px;
     }
 
     .mini p {
-      margin: 0;
-      color: var(--card-text-soft);
-      font-size: 11px;
-      line-height: 1.68;
-      word-break: keep-all;
-      white-space: pre-line;
+      margin: 0; color: var(--card-text-soft);
+      font-size: 11px; line-height: 1.68;
+      word-break: keep-all; white-space: pre-line;
     }
 
-    .mini-favor {
-      background: var(--favor-bg);
-      border: 1px solid var(--favor-border);
-    }
+    .mini-favor { background: var(--favor-bg); border: 1px solid var(--favor-border); }
+    .mini-favor .mini-title { color: var(--favor-accent); }
 
-    .mini-favor .mini-title {
-      color: var(--favor-accent);
-    }
-
-    .mini-hate {
-      background: var(--hate-bg);
-      border: 1px solid var(--hate-border);
-    }
-
-    .mini-hate .mini-title {
-      color: var(--hate-accent);
-    }
+    .mini-hate { background: var(--hate-bg); border: 1px solid var(--hate-border); }
+    .mini-hate .mini-title { color: var(--hate-accent); }
 
     .copyright {
-      text-align: center;
-      color: var(--secret-accent);
-      font-size: 9px;
-      line-height: 1;
-      letter-spacing: 2.2px;
-      font-weight: 700;
-      padding: 14px 0 16px;
+      text-align: center; color: var(--secret-accent);
+      font-size: 9px; line-height: 1; letter-spacing: 2.2px;
+      font-weight: 700; padding: 14px 0 16px;
       background: var(--card-bg);
     }
 
-    .helper {
-      margin-top: 14px;
-      font-size: 12px;
-      color: #b99595;
-      line-height: 1.7;
-    }
+    .helper { margin-top: 14px; font-size: 12px; color: #b99595; line-height: 1.7; }
 
     @media (max-width: 1100px) {
-      .layout {
-        grid-template-columns: 1fr;
-      }
-
-      .editor {
-        position: static;
-      }
-
-      .preview-area {
-        justify-content: center;
-      }
+      .layout { grid-template-columns: 1fr; }
+      .editor { position: static; max-height: none; }
+      .preview-area { justify-content: center; }
     }
 
     @media (max-width: 520px) {
-      .layout {
-        padding: 16px 12px 28px;
-      }
-
-      .site-header-inner {
-        padding: 16px 12px;
-      }
-
-      .editor {
-        padding: 14px;
-      }
+      .layout { padding: 16px 12px 28px; }
+      .site-header-inner { padding: 16px 12px; }
+      .editor { padding: 14px; }
     }
   </style>
 </head>
@@ -546,15 +369,14 @@
   <main class="layout">
     <section class="editor">
       <h2>프로필 편집기</h2>
-      <p class="editor-desc">
-        코드네임, 각 박스 내용, 각 박스별 색상을 개별적으로 설정할 수 있습니다.
-      </p>
+      <p class="editor-desc">코드네임, 각 박스 내용, 각 박스별 색상(테두리·배경 포함)을 개별적으로 설정할 수 있습니다.</p>
 
       <div class="action-row">
         <button type="button" class="action-button" id="savePngButton">PNG 저장</button>
         <div class="action-status" id="actionStatus"></div>
       </div>
 
+      <!-- 전체 카드 색상 -->
       <div class="form-section">
         <h3 class="form-section-title">전체 카드 색상</h3>
 
@@ -579,12 +401,18 @@
         </div>
       </div>
 
+      <!-- 기본 정보 -->
       <div class="form-section">
         <h3 class="form-section-title">기본 정보</h3>
 
         <div class="field">
           <label for="imageInput">상단 이미지 업로드</label>
           <input type="file" id="imageInput" accept="image/*" />
+        </div>
+
+        <div class="field">
+          <label for="secretTextInput">상단 비밀 문구</label>
+          <input type="text" id="secretTextInput" value="PRISM TOP SECRET ASSET" />
         </div>
 
         <div class="field">
@@ -598,16 +426,22 @@
         </div>
       </div>
 
+      <!-- 외형 / 스탯 -->
       <div class="form-section">
         <h3 class="form-section-title">외형 / 스탯</h3>
 
         <div class="field">
           <label for="physicalInput">PHYSICAL DESCRIPTION</label>
           <textarea id="physicalInput"></textarea>
-
-          <div class="inline-color">
-            <label for="physicalColorInput">외형 박스 색상</label>
-            <input type="color" id="physicalColorInput" value="#ff2d2d" />
+          <div class="color-row">
+            <div class="color-cell">
+              <label for="physicalColorInput">텍스트·테두리 색상</label>
+              <input type="color" id="physicalColorInput" value="#ff2d2d" />
+            </div>
+            <div class="color-cell">
+              <label for="physicalBgInput">배경 색상</label>
+              <input type="color" id="physicalBgInput" value="#180607" />
+            </div>
           </div>
         </div>
 
@@ -619,14 +453,20 @@
         <div class="field">
           <label for="rankInput">RANK / TYPE</label>
           <input type="text" id="rankInput" value="" />
-
-          <div class="inline-color">
-            <label for="statColorInput">스탯 박스 색상</label>
-            <input type="color" id="statColorInput" value="#ff2d2d" />
+          <div class="color-row">
+            <div class="color-cell">
+              <label for="statColorInput">텍스트·테두리 색상</label>
+              <input type="color" id="statColorInput" value="#ff2d2d" />
+            </div>
+            <div class="color-cell">
+              <label for="statBgInput">배경 색상</label>
+              <input type="color" id="statBgInput" value="#180607" />
+            </div>
           </div>
         </div>
       </div>
 
+      <!-- 관계 / 능력 / 서사 -->
       <div class="form-section">
         <h3 class="form-section-title">관계 / 능력 / 서사</h3>
 
@@ -638,10 +478,15 @@
         <div class="field">
           <label for="relationBodyInput">관계 섹션 본문</label>
           <textarea id="relationBodyInput"></textarea>
-
-          <div class="inline-color">
-            <label for="relationColorInput">관계 박스 색상</label>
-            <input type="color" id="relationColorInput" value="#ff2d2d" />
+          <div class="color-row">
+            <div class="color-cell">
+              <label for="relationColorInput">텍스트·테두리 색상</label>
+              <input type="color" id="relationColorInput" value="#ff2d2d" />
+            </div>
+            <div class="color-cell">
+              <label for="relationBgInput">배경 색상</label>
+              <input type="color" id="relationBgInput" value="#180607" />
+            </div>
           </div>
         </div>
 
@@ -653,10 +498,15 @@
         <div class="field">
           <label for="skillBodyInput">능력 섹션 본문</label>
           <textarea id="skillBodyInput"></textarea>
-
-          <div class="inline-color">
-            <label for="skillColorInput">능력 박스 색상</label>
-            <input type="color" id="skillColorInput" value="#ff2d2d" />
+          <div class="color-row">
+            <div class="color-cell">
+              <label for="skillColorInput">텍스트·테두리·구분선 색상</label>
+              <input type="color" id="skillColorInput" value="#ff2d2d" />
+            </div>
+            <div class="color-cell">
+              <label for="skillBgInput">배경 색상</label>
+              <input type="color" id="skillBgInput" value="#180607" />
+            </div>
           </div>
         </div>
 
@@ -668,207 +518,597 @@
         <div class="field">
           <label for="historyBodyInput">서사 본문</label>
           <textarea id="historyBodyInput"></textarea>
-
-          <div class="inline-color">
-            <label for="historyColorInput">서사 박스 색상</label>
-            <input type="color" id="historyColorInput" value="#ff2d2d" />
+          <div class="color-row">
+            <div class="color-cell">
+              <label for="historyColorInput">텍스트·테두리·구분선 색상</label>
+              <input type="color" id="historyColorInput" value="#ff2d2d" />
+            </div>
+            <div class="color-cell">
+              <label for="historyBgInput">배경 색상</label>
+              <input type="color" id="historyBgInput" value="#180607" />
+            </div>
           </div>
         </div>
       </div>
 
+      <!-- 기호 -->
       <div class="form-section">
         <h3 class="form-section-title">기호</h3>
 
         <div class="field">
           <label for="favorInput">FAVOR</label>
           <textarea id="favorInput"></textarea>
-
-          <div class="inline-color">
-            <label for="favorColorInput">FAVOR 박스 색상</label>
-            <input type="color" id="favorColorInput" value="#ff2d2d" />
+          <div class="color-row">
+            <div class="color-cell">
+              <label for="favorColorInput">텍스트·테두리 색상</label>
+              <input type="color" id="favorColorInput" value="#ff2d2d" />
+            </div>
+            <div class="color-cell">
+              <label for="favorBgInput">배경 색상</label>
+              <input type="color" id="favorBgInput" value="#180607" />
+            </div>
           </div>
         </div>
 
         <div class="field">
           <label for="hateInput">HATE</label>
           <textarea id="hateInput"></textarea>
-
-          <div class="inline-color">
-            <label for="hateColorInput">HATE 박스 색상</label>
-            <input type="color" id="hateColorInput" value="#ff2d2d" />
+          <div class="color-row">
+            <div class="color-cell">
+              <label for="hateColorInput">텍스트·테두리 색상</label>
+              <input type="color" id="hateColorInput" value="#ff2d2d" />
+            </div>
+            <div class="color-cell">
+              <label for="hateBgInput">배경 색상</label>
+              <input type="color" id="hateBgInput" value="#180607" />
+            </div>
           </div>
         </div>
       </div>
 
       <p class="helper">
-        GitHub Pages에서 저장이 안 되면 브라우저 개발자 도구 콘솔에서 오류를 먼저 확인하세요.
+        PNG 저장은 카드를 그대로 캡처합니다. 이미지를 업로드한 경우 로컬 파일이므로 CORS 문제 없이 저장됩니다.
       </p>
     </section>
 
+    <!-- ── PREVIEW ── -->
     <section class="preview-area">
       <div class="wrap">
         <div class="card" id="profileCard">
           <div class="hero" id="previewHero"></div>
 
-          <div class="content">
+          <div class="content" id="previewContent">
             <div class="secret" id="previewSecret">PRISM TOP SECRET ASSET</div>
-
             <h1 class="codename" id="previewCodename"></h1>
-
             <div class="tag" id="previewTag"></div>
 
-            <section class="panel panel-physical">
+            <section class="panel panel-physical" id="panelPhysical">
               <div class="panel-title">PHYSICAL DESCRIPTION</div>
               <p id="previewPhysical"></p>
             </section>
 
             <div class="stat-grid">
-              <div class="stat">
+              <div class="stat" id="statAge">
                 <div class="stat-label">AGE / GEN</div>
                 <div class="stat-value" id="previewAge"></div>
               </div>
-
-              <div class="stat">
+              <div class="stat" id="statRank">
                 <div class="stat-label">RANK / TYPE</div>
                 <div class="stat-value" id="previewRank"></div>
               </div>
             </div>
 
-            <section class="panel panel-relation">
+            <section class="panel panel-relation" id="panelRelation">
               <div class="panel-title" id="previewRelationTitle"></div>
               <p id="previewRelationBody"></p>
             </section>
 
             <div class="section-head section-head-skill" id="previewSkillTitle"></div>
-
-            <section class="panel panel-skill">
+            <section class="panel panel-skill" id="panelSkill">
               <p id="previewSkillBody"></p>
             </section>
 
             <div class="section-head section-head-history" id="previewHistoryTitle"></div>
-
-            <section class="panel panel-history">
+            <section class="panel panel-history" id="panelHistory">
               <p id="previewHistoryBody"></p>
             </section>
 
             <div class="bottom-grid">
-              <section class="mini mini-favor">
+              <section class="mini mini-favor" id="panelFavor">
                 <div class="mini-title">FAVOR</div>
                 <p id="previewFavor"></p>
               </section>
-
-              <section class="mini mini-hate">
+              <section class="mini mini-hate" id="panelHate">
                 <div class="mini-title">HATE</div>
                 <p id="previewHate"></p>
               </section>
             </div>
           </div>
 
-          <div class="copyright">© PRISM FOUNDATION</div>
+          <div class="copyright" id="previewCopyright">© PRISM FOUNDATION</div>
         </div>
       </div>
     </section>
   </main>
 
   <script>
-    const bindText = (inputId, previewId) => {
+    /* ── 텍스트 바인딩 ── */
+    function bindText(inputId, previewId) {
       const input = document.getElementById(inputId);
       const preview = document.getElementById(previewId);
-
       if (!input || !preview) return;
-
-      const update = () => {
-        preview.textContent = input.value;
-      };
-
+      const update = () => { preview.textContent = input.value; };
       input.addEventListener("input", update);
       update();
-    };
+    }
 
-    bindText("codenameInput", "previewCodename");
-    bindText("tagInput", "previewTag");
-    bindText("physicalInput", "previewPhysical");
-    bindText("ageInput", "previewAge");
-    bindText("rankInput", "previewRank");
-    bindText("relationTitleInput", "previewRelationTitle");
+    bindText("secretTextInput",   "previewSecret");
+    bindText("codenameInput",     "previewCodename");
+    bindText("tagInput",          "previewTag");
+    bindText("physicalInput",     "previewPhysical");
+    bindText("ageInput",          "previewAge");
+    bindText("rankInput",         "previewRank");
+    bindText("relationTitleInput","previewRelationTitle");
     bindText("relationBodyInput", "previewRelationBody");
-    bindText("skillTitleInput", "previewSkillTitle");
-    bindText("skillBodyInput", "previewSkillBody");
+    bindText("skillTitleInput",   "previewSkillTitle");
+    bindText("skillBodyInput",    "previewSkillBody");
     bindText("historyTitleInput", "previewHistoryTitle");
-    bindText("historyBodyInput", "previewHistoryBody");
-    bindText("favorInput", "previewFavor");
-    bindText("hateInput", "previewHate");
+    bindText("historyBodyInput",  "previewHistoryBody");
+    bindText("favorInput",        "previewFavor");
+    bindText("hateInput",         "previewHate");
 
-    const imageInput = document.getElementById("imageInput");
-    const previewHero = document.getElementById("previewHero");
+    /* ── 이미지 업로드 ── */
+    let uploadedImageDataUrl = null;
 
-    imageInput.addEventListener("change", function () {
+    document.getElementById("imageInput").addEventListener("change", function () {
       const file = this.files && this.files[0];
       if (!file) return;
-
       const reader = new FileReader();
-      reader.onload = function (e) {
-        previewHero.style.background =
-          'linear-gradient(to bottom, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.08) 55%, rgba(16, 3, 4, 0.72) 86%, rgba(16, 3, 4, 0.98) 100%), url("' +
-          e.target.result +
-          '") center top / cover no-repeat';
+      reader.onload = (e) => {
+        uploadedImageDataUrl = e.target.result;
+        document.getElementById("previewHero").style.background =
+          'linear-gradient(to bottom,rgba(0,0,0,0.00) 0%,rgba(0,0,0,0.08) 55%,rgba(16,3,4,0.72) 86%,rgba(16,3,4,0.98) 100%),url("' +
+          uploadedImageDataUrl + '") center top / cover no-repeat';
       };
       reader.readAsDataURL(file);
     });
 
+    /* ── CSS 변수 바인딩 ── */
     const root = document.documentElement;
 
-    const bindColor = (inputId, cssVars) => {
+    function bindColor(inputId, cssVars) {
       const input = document.getElementById(inputId);
       if (!input) return;
+      const apply = () => cssVars.forEach(v => root.style.setProperty(v, input.value));
+      input.addEventListener("input", apply);
+      apply();
+    }
 
-      const applyColor = () => {
-        cssVars.forEach((v) => root.style.setProperty(v, input.value));
-      };
-
-      input.addEventListener("input", applyColor);
-      applyColor();
-    };
-
-    bindColor("cardBgInput", ["--card-bg"]);
+    /* 전체 카드 */
+    bindColor("cardBgInput",    ["--card-bg"]);
     bindColor("textColorInput", ["--card-text-body", "--card-text-soft"]);
-    bindColor("secretColorInput", ["--secret-accent"]);
-    bindColor("tagColorInput", ["--tag-accent", "--tag-border"]);
+    bindColor("secretColorInput",["--secret-accent"]);
+    bindColor("tagColorInput",  ["--tag-accent","--tag-border"]);
 
-    bindColor("physicalColorInput", ["--physical-accent", "--physical-border"]);
-    bindColor("relationColorInput", ["--relation-accent", "--relation-border"]);
-    bindColor("skillColorInput", ["--skill-accent", "--skill-border", "--skill-line"]);
-    bindColor("historyColorInput", ["--history-accent", "--history-border", "--history-line"]);
-    bindColor("statColorInput", ["--stat-accent", "--stat-border"]);
-    bindColor("favorColorInput", ["--favor-accent", "--favor-border"]);
-    bindColor("hateColorInput", ["--hate-accent", "--hate-border"]);
+    /* 외형 */
+    bindColor("physicalColorInput", ["--physical-accent","--physical-border"]);
+    bindColor("physicalBgInput",    ["--physical-bg"]);
 
-    const savePngButton = document.getElementById("savePngButton");
-    const actionStatus = document.getElementById("actionStatus");
-    const profileCard = document.getElementById("profileCard");
+    /* 스탯 */
+    bindColor("statColorInput", ["--stat-accent","--stat-border"]);
+    bindColor("statBgInput",    ["--stat-bg"]);
 
-    const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+    /* 관계 */
+    bindColor("relationColorInput", ["--relation-accent","--relation-border"]);
+    bindColor("relationBgInput",    ["--relation-bg"]);
 
-    savePngButton.addEventListener("click", async () => {
+    /* 능력 */
+    bindColor("skillColorInput", ["--skill-accent","--skill-border","--skill-line"]);
+    bindColor("skillBgInput",    ["--skill-bg"]);
+
+    /* 서사 */
+    bindColor("historyColorInput", ["--history-accent","--history-border","--history-line"]);
+    bindColor("historyBgInput",    ["--history-bg"]);
+
+    /* FAVOR */
+    bindColor("favorColorInput", ["--favor-accent","--favor-border"]);
+    bindColor("favorBgInput",    ["--favor-bg"]);
+
+    /* HATE */
+    bindColor("hateColorInput", ["--hate-accent","--hate-border"]);
+    bindColor("hateBgInput",    ["--hate-bg"]);
+
+    /* ── PNG 저장 (html2canvas 없이 네이티브 Canvas API 사용) ── */
+    document.getElementById("savePngButton").addEventListener("click", async () => {
+      const status = document.getElementById("actionStatus");
+
       try {
-        if (typeof html2canvas === "undefined") {
-          throw new Error("html2canvas 라이브러리가 로드되지 않았습니다.");
+        status.textContent = "PNG를 준비 중입니다...";
+
+        // 폰트 로드 대기
+        await document.fonts.ready;
+
+        const card = document.getElementById("profileCard");
+        const rect = card.getBoundingClientRect();
+
+        // 스케일
+        const SCALE = 2;
+        const W = Math.round(rect.width)  * SCALE;
+        const H = Math.round(rect.height) * SCALE;
+
+        const canvas  = document.createElement("canvas");
+        canvas.width  = W;
+        canvas.height = H;
+        const ctx = canvas.getContext("2d");
+
+        // 계산된 CSS 스타일에서 색상 읽기
+        const cs = getComputedStyle(card);
+        const getCSSVar = (name) => {
+          return getComputedStyle(document.documentElement)
+            .getPropertyValue(name).trim();
+        };
+
+        // ── 헬퍼 함수 ──
+        const px = (n) => n * SCALE;
+
+        function fillRoundRect(ctx, x, y, w, h, r, fillColor, strokeColor, lineWidth) {
+          ctx.beginPath();
+          ctx.moveTo(px(x) + r, px(y));
+          ctx.lineTo(px(x) + px(w) - r, px(y));
+          ctx.quadraticCurveTo(px(x) + px(w), px(y), px(x) + px(w), px(y) + r);
+          ctx.lineTo(px(x) + px(w), px(y) + px(h) - r);
+          ctx.quadraticCurveTo(px(x) + px(w), px(y) + px(h), px(x) + px(w) - r, px(y) + px(h));
+          ctx.lineTo(px(x) + r, px(y) + px(h));
+          ctx.quadraticCurveTo(px(x), px(y) + px(h), px(x), px(y) + px(h) - r);
+          ctx.lineTo(px(x), px(y) + r);
+          ctx.quadraticCurveTo(px(x), px(y), px(x) + r, px(y));
+          ctx.closePath();
+          if (fillColor) { ctx.fillStyle = fillColor; ctx.fill(); }
+          if (strokeColor) { ctx.strokeStyle = strokeColor; ctx.lineWidth = lineWidth || 1; ctx.stroke(); }
         }
 
-        actionStatus.textContent = "PNG를 저장하는 중입니다...";
+        // ── 텍스트를 다중 라인으로 분할해 그리기 ──
+        function drawWrappedText(ctx, text, x, y, maxWidth, lineHeight, color, font) {
+          ctx.fillStyle = color;
+          ctx.font = font;
+          const lines = text.split("\n");
+          let curY = y;
+          for (const line of lines) {
+            if (line === "") { curY += lineHeight; continue; }
+            const words = line.split(" ");
+            let curLine = "";
+            for (const word of words) {
+              const test = curLine ? curLine + " " + word : word;
+              if (ctx.measureText(test).width > maxWidth && curLine) {
+                ctx.fillText(curLine, x, curY);
+                curLine = word;
+                curY += lineHeight;
+              } else {
+                curLine = test;
+              }
+            }
+            if (curLine) { ctx.fillText(curLine, x, curY); curY += lineHeight; }
+          }
+          return curY;
+        }
 
-        await document.fonts.ready;
-        await wait(150);
+        // ── 색상값 수집 ──
+        const cardBg          = getCSSVar("--card-bg")          || "#120304";
+        const textBody        = getCSSVar("--card-text-body")   || "#f0dddd";
+        const textSoft        = getCSSVar("--card-text-soft")   || "#efdddd";
+        const textWhite       = getCSSVar("--card-text-white")  || "#fff7f7";
+        const statText        = getCSSVar("--card-stat-text")   || "#fff5f5";
+        const secretAccent    = getCSSVar("--secret-accent")    || "#ff2d2d";
+        const tagAccent       = getCSSVar("--tag-accent")       || "#ff2d2d";
+        const tagBorder       = getCSSVar("--tag-border")       || "#a31717";
 
-        const canvas = await html2canvas(profileCard, {
-          backgroundColor: "#120304",
-          scale: 2,
-          useCORS: true,
-          logging: false
-        });
+        const physAccent      = getCSSVar("--physical-accent")  || "#ff2d2d";
+        const physBorder      = getCSSVar("--physical-border")  || "#4a1212";
+        const physBg          = getCSSVar("--physical-bg")      || "#180607";
 
-        const dataUrl = canvas.toDataURL("image/png");
+        const statAccent      = getCSSVar("--stat-accent")      || "#ff2d2d";
+        const statBorder      = getCSSVar("--stat-border")      || "#931818";
+        const statBg          = getCSSVar("--stat-bg")          || "#180607";
 
+        const relAccent       = getCSSVar("--relation-accent")  || "#ff2d2d";
+        const relBorder       = getCSSVar("--relation-border")  || "#4a1212";
+        const relBg           = getCSSVar("--relation-bg")      || "#180607";
+
+        const skillAccent     = getCSSVar("--skill-accent")     || "#ff2d2d";
+        const skillBorder     = getCSSVar("--skill-border")     || "#4a1212";
+        const skillLine       = getCSSVar("--skill-line")       || "#df2020";
+        const skillBg         = getCSSVar("--skill-bg")         || "#180607";
+
+        const histAccent      = getCSSVar("--history-accent")   || "#ff2d2d";
+        const histBorder      = getCSSVar("--history-border")   || "#4a1212";
+        const histLine        = getCSSVar("--history-line")     || "#df2020";
+        const histBg          = getCSSVar("--history-bg")       || "#180607";
+
+        const favorAccent     = getCSSVar("--favor-accent")     || "#ff2d2d";
+        const favorBorder     = getCSSVar("--favor-border")     || "#4a1212";
+        const favorBg         = getCSSVar("--favor-bg")         || "#180607";
+
+        const hateAccent      = getCSSVar("--hate-accent")      || "#ff2d2d";
+        const hateBorder      = getCSSVar("--hate-border")      || "#4a1212";
+        const hateBg          = getCSSVar("--hate-bg")          || "#180607";
+
+        // ── 텍스트 값 수집 ──
+        const getValue = (id) => (document.getElementById(id) || {}).value || "";
+
+        const codenameText      = getValue("codenameInput");
+        const tagText           = getValue("tagInput");
+        const secretText        = getValue("secretTextInput") || "PRISM TOP SECRET ASSET";
+        const physicalText      = getValue("physicalInput");
+        const ageText           = getValue("ageInput");
+        const rankText          = getValue("rankInput");
+        const relTitleText      = getValue("relationTitleInput");
+        const relBodyText       = getValue("relationBodyInput");
+        const skillTitleText    = getValue("skillTitleInput");
+        const skillBodyText     = getValue("skillBodyInput");
+        const histTitleText     = getValue("historyTitleInput");
+        const histBodyText      = getValue("historyBodyInput");
+        const favorText         = getValue("favorInput");
+        const hateText          = getValue("hateInput");
+
+        // ── 카드 치수 (CSS px 기준) ──
+        const CARD_W   = 318;
+        const HERO_H   = 252;
+        const PAD_X    = 14;
+        const PAD_Y    = 10;
+        const INNER_W  = CARD_W - PAD_X * 2;   // 290
+
+        /* ---------- 1단계: 히어로 이미지 그리기 ---------- */
+        // 배경 카드 전체
+        ctx.fillStyle = cardBg;
+        ctx.fillRect(0, 0, W, H);
+
+        // 히어로 영역
+        if (uploadedImageDataUrl) {
+          await new Promise((resolve) => {
+            const img = new Image();
+            img.onload = () => {
+              // cover 시뮬레이션
+              const imgW = img.naturalWidth, imgH = img.naturalHeight;
+              const targetW = px(CARD_W), targetH = px(HERO_H);
+              const scale = Math.max(targetW / imgW, targetH / imgH);
+              const dW = imgW * scale, dH = imgH * scale;
+              const dX = (targetW - dW) / 2, dY = 0;
+              ctx.drawImage(img, dX, dY, dW, dH);
+              resolve();
+            };
+            img.onerror = resolve;
+            img.src = uploadedImageDataUrl;
+          });
+        } else {
+          // 기본 placeholder
+          ctx.fillStyle = "#111111";
+          ctx.fillRect(0, 0, px(CARD_W), px(HERO_H));
+          ctx.fillStyle = "#888888";
+          ctx.font = `${px(12)}px Arial`;
+          ctx.textAlign = "center";
+          ctx.fillText("IMAGE", px(CARD_W / 2), px(HERO_H / 2));
+        }
+
+        // 히어로 그라디언트 오버레이
+        const heroGrad = ctx.createLinearGradient(0, 0, 0, px(HERO_H));
+        heroGrad.addColorStop(0.00, "rgba(0,0,0,0.00)");
+        heroGrad.addColorStop(0.55, "rgba(0,0,0,0.08)");
+        heroGrad.addColorStop(0.86, "rgba(16,3,4,0.72)");
+        heroGrad.addColorStop(1.00, "rgba(16,3,4,0.98)");
+        ctx.fillStyle = heroGrad;
+        ctx.fillRect(0, 0, px(CARD_W), px(HERO_H));
+
+        /* ---------- 2단계: content 배경 ---------- */
+        // content 영역은 히어로 아래부터 copyright 바로 위까지
+        // 먼저 전체 높이를 계산해야 하므로 dry-run 없이 고정 값으로 처리
+        // (Canvas는 auto-height가 없으므로 텍스트 높이를 측정해 Y를 추적)
+
+        ctx.textAlign = "left";
+
+        let curY = HERO_H + PAD_Y; // CSS px 단위
+
+        /* ── PRISM TOP SECRET ASSET ── */
+        ctx.font = `800 ${px(10)}px "Noto Sans KR", sans-serif`;
+        ctx.textAlign = "center";
+        ctx.fillStyle = secretAccent;
+        ctx.letterSpacing = "2.6px";
+        ctx.fillText(secretText, px(CARD_W / 2), px(curY + 10));
+        curY += 20;
+
+        /* ── CODENAME ── */
+        ctx.font = `300 ${px(24)}px "Noto Sans KR", sans-serif`;
+        ctx.fillStyle = textWhite;
+        ctx.fillText(codenameText, px(CARD_W / 2), px(curY + 24));
+        curY += 32;
+
+        /* ── TAG ── */
+        if (tagText) {
+          ctx.font = `400 ${px(10)}px "Noto Sans KR", sans-serif`;
+          const tagW = ctx.measureText(tagText).width + px(20);
+          const tagX = px(CARD_W / 2) - tagW / 2;
+          const tagH = px(22);
+          const tagTop = px(curY);
+          // 테두리
+          ctx.strokeStyle = tagBorder;
+          ctx.lineWidth = px(1);
+          ctx.strokeRect(tagX, tagTop, tagW, tagH);
+          ctx.fillStyle = "rgba(255,0,0,0.02)";
+          ctx.fillRect(tagX, tagTop, tagW, tagH);
+          ctx.fillStyle = tagAccent;
+          ctx.fillText(tagText, px(CARD_W / 2), tagTop + px(14));
+          curY += 32;
+        } else {
+          curY += 10;
+        }
+
+        ctx.textAlign = "left";
+
+        /* ── PHYSICAL DESCRIPTION panel ── */
+        function drawPanel(bgColor, borderColor, titleColor, titleText, bodyText, bodyTextColor, x, y, w) {
+          ctx.font = `400 ${px(11)}px "Noto Sans KR", sans-serif`;
+          // 텍스트 높이 측정 (미리 계산)
+          const lineH = px(11) * 1.72;
+          const lines = bodyText.split("\n");
+          let textH = 0;
+          for (const line of lines) {
+            if (!line.trim()) { textH += lineH; continue; }
+            const words = line.split(" ");
+            let cur = "";
+            for (const word of words) {
+              const test = cur ? cur + " " + word : word;
+              if (ctx.measureText(test).width > px(w - 24) && cur) {
+                textH += lineH;
+                cur = word;
+              } else cur = test;
+            }
+            textH += lineH;
+          }
+          const panelH = px(12 + 10 + 10) + px(10) + textH; // padding + title + gap + body
+          fillRoundRect(ctx, x, y, w, (panelH / SCALE), 6, bgColor, borderColor, px(1));
+          ctx.fillStyle = titleColor;
+          ctx.font = `800 ${px(10)}px "Noto Sans KR", sans-serif`;
+          ctx.fillText(titleText, px(x + 12), px(y + 12) + px(10));
+          const finalY = drawWrappedText(
+            ctx, bodyText,
+            px(x + 12), px(y + 12) + px(10) + px(12) + lineH * 0.8,
+            px(w - 24), lineH, bodyTextColor,
+            `400 ${px(11)}px "Noto Sans KR", sans-serif`
+          );
+          return y + panelH / SCALE + 12;
+        }
+
+        curY = drawPanel(
+          physBg, physBorder, physAccent,
+          "PHYSICAL DESCRIPTION", physicalText, textBody,
+          PAD_X, curY, INNER_W
+        );
+
+        /* ── STAT GRID ── */
+        const statW = (INNER_W - 10) / 2;
+        const statH = 73;
+
+        function drawStat(label, value, x, y, w, h) {
+          fillRoundRect(ctx, x, y, w, h, 6, statBg, statBorder, px(1));
+          ctx.font = `700 ${px(9)}px "Noto Sans KR", sans-serif`;
+          ctx.fillStyle = statAccent;
+          ctx.textAlign = "center";
+          ctx.fillText(label, px(x + w / 2), px(y + 22));
+          ctx.font = `500 ${px(12)}px "Noto Sans KR", sans-serif`;
+          ctx.fillStyle = statText;
+          ctx.fillText(value, px(x + w / 2), px(y + 22 + 20));
+          ctx.textAlign = "left";
+        }
+
+        drawStat("AGE / GEN",  ageText,  PAD_X,              curY, statW, statH);
+        drawStat("RANK / TYPE", rankText, PAD_X + statW + 10, curY, statW, statH);
+        curY += statH + 12;
+
+        /* ── RELATION ── */
+        curY = drawPanel(
+          relBg, relBorder, relAccent,
+          relTitleText || "RELATION", relBodyText, textBody,
+          PAD_X, curY, INNER_W
+        );
+
+        /* ── SKILL section head ── */
+        if (skillTitleText) {
+          ctx.strokeStyle = skillLine;
+          ctx.lineWidth = px(1);
+          ctx.beginPath();
+          ctx.moveTo(px(PAD_X), px(curY));
+          ctx.lineTo(px(PAD_X + INNER_W), px(curY));
+          ctx.stroke();
+          ctx.font = `700 ${px(11)}px "Noto Sans KR", sans-serif`;
+          ctx.fillStyle = skillAccent;
+          ctx.fillText(skillTitleText, px(PAD_X), px(curY + 14));
+          curY += 26;
+        }
+
+        /* ── SKILL panel ── */
+        curY = drawPanel(
+          skillBg, skillBorder, skillAccent,
+          "", skillBodyText, textBody,
+          PAD_X, curY, INNER_W
+        );
+
+        /* ── HISTORY section head ── */
+        if (histTitleText) {
+          ctx.strokeStyle = histLine;
+          ctx.lineWidth = px(1);
+          ctx.beginPath();
+          ctx.moveTo(px(PAD_X), px(curY));
+          ctx.lineTo(px(PAD_X + INNER_W), px(curY));
+          ctx.stroke();
+          ctx.font = `700 ${px(11)}px "Noto Sans KR", sans-serif`;
+          ctx.fillStyle = histAccent;
+          ctx.fillText(histTitleText, px(PAD_X), px(curY + 14));
+          curY += 26;
+        }
+
+        /* ── HISTORY panel ── */
+        curY = drawPanel(
+          histBg, histBorder, histAccent,
+          "", histBodyText, textBody,
+          PAD_X, curY, INNER_W
+        );
+
+        /* ── FAVOR / HATE ── */
+        const miniW = (INNER_W - 10) / 2;
+
+        function drawMini(label, text, accentColor, borderColor, bgColor, x, y, w) {
+          ctx.font = `400 ${px(11)}px "Noto Sans KR", sans-serif`;
+          const lineH = px(11) * 1.68;
+          const lines = text.split("\n");
+          let textH = 0;
+          for (const line of lines) {
+            if (!line.trim()) { textH += lineH; continue; }
+            const words = line.split(" ");
+            let cur = "";
+            for (const word of words) {
+              const test = cur ? cur + " " + word : word;
+              if (ctx.measureText(test).width > px(w - 22) && cur) { textH += lineH; cur = word; }
+              else cur = test;
+            }
+            textH += lineH;
+          }
+          const panelH = Math.max(82, 11 + 10 + 10 + textH / SCALE + 12);
+          fillRoundRect(ctx, x, y, w, panelH, 6, bgColor, borderColor, px(1));
+          ctx.font = `800 ${px(10)}px "Noto Sans KR", sans-serif`;
+          ctx.fillStyle = accentColor;
+          ctx.fillText(label, px(x + 11), px(y + 21));
+          drawWrappedText(
+            ctx, text,
+            px(x + 11), px(y + 21) + px(13),
+            px(w - 22), lineH, textSoft,
+            `400 ${px(11)}px "Noto Sans KR", sans-serif`
+          );
+          return y + panelH + 10;
+        }
+
+        const miniEndY = Math.max(
+          drawMini("FAVOR", favorText, favorAccent, favorBorder, favorBg, PAD_X, curY, miniW),
+          drawMini("HATE",  hateText,  hateAccent,  hateBorder,  hateBg,  PAD_X + miniW + 10, curY, miniW)
+        );
+        curY = miniEndY;
+
+        /* ── COPYRIGHT ── */
+        ctx.fillStyle = cardBg;
+        ctx.fillRect(0, px(curY), px(CARD_W), px(30));
+        ctx.font = `700 ${px(9)}px "Noto Sans KR", sans-serif`;
+        ctx.fillStyle = secretAccent;
+        ctx.textAlign = "center";
+        ctx.fillText("© PRISM FOUNDATION", px(CARD_W / 2), px(curY + 17));
+
+        /* ---------- 캔버스 사이즈를 실제 높이로 재조정 ---------- */
+        const finalHeight = px(curY + 30);
+        const finalCanvas = document.createElement("canvas");
+        finalCanvas.width  = W;
+        finalCanvas.height = finalHeight;
+        const fc = finalCanvas.getContext("2d");
+        fc.drawImage(canvas, 0, 0);
+
+        /* ---------- 저장 ---------- */
+        const dataUrl = finalCanvas.toDataURL("image/png");
         const link = document.createElement("a");
         link.href = dataUrl;
         link.download = "prism-profile-card.png";
@@ -876,10 +1116,11 @@
         link.click();
         link.remove();
 
-        actionStatus.textContent = "PNG 저장이 완료되었습니다.";
-      } catch (error) {
-        console.error("PNG save error:", error);
-        actionStatus.textContent = "PNG 저장 중 오류가 발생했습니다. 콘솔을 확인하세요.";
+        status.textContent = "PNG 저장이 완료되었습니다.";
+      } catch (err) {
+        console.error("PNG save error:", err);
+        document.getElementById("actionStatus").textContent =
+          "오류: " + err.message;
       }
     });
   </script>
