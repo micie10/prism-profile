@@ -30,7 +30,12 @@
       --skill-line-right: #df2020;
       --history-line-left: #df2020;
       --history-line-right: #df2020;
+      
+      /* STAT (AGE, RANK) 관련 변수 */
       --stat-accent: #ff2d2d;
+      --stat-value-color: #fff5f5;
+      --stat-bg: transparent;
+
       --favor-title-color: #ff2d2d;
       --favor-accent: #ff2d2d;
       --favor-bg: transparent;
@@ -347,7 +352,6 @@
       border: 1px solid var(--box-border);
     }
 
-    /* PHYSICAL 언더라인을 끝까지 채우기 위한 확장 구조 */
     .panel-physical .panel-title {
       color: var(--card-text-white);
       display: block;
@@ -410,6 +414,7 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
+      background: var(--stat-bg);
     }
 
     .stat-label {
@@ -422,7 +427,7 @@
     }
 
     .stat-value {
-      color: var(--card-stat-text);
+      color: var(--stat-value-color);
       font-size: 12px;
       line-height: 1.25;
       font-weight: 500;
@@ -611,7 +616,7 @@
       </div>
 
       <div class="form-section">
-        <h3 class="form-section-title">외형 / 스탯</h3>
+        <h3 class="form-section-title">외형 / 스탯 (AGE, RANK)</h3>
 
         <div class="field">
           <label for="physicalInput">PHYSICAL DESCRIPTION</label>
@@ -630,9 +635,23 @@
         <div class="field">
           <label for="rankInput">RANK / TYPE</label>
           <input type="text" id="rankInput" value="" />
-          <div class="inline-color">
-            <label for="statColorInput">텍스트 색상</label>
-            <input type="color" id="statColorInput" value="#ff2d2d" />
+        </div>
+
+        <div class="field" style="margin-top: 14px;">
+          <label style="color: #ff2d2d; font-size: 11px;">[스탯 박스 색상 설정]</label>
+          <div class="color-row">
+            <div class="color-cell">
+              <label for="statLabelColorInput">상단 라벨 색상</label>
+              <input type="color" id="statLabelColorInput" value="#ff2d2d" />
+            </div>
+            <div class="color-cell">
+              <label for="statValueColorInput">하단 값 텍스트 색상</label>
+              <input type="color" id="statValueColorInput" value="#fff5f5" />
+            </div>
+          </div>
+          <div class="inline-color" style="margin-top: 8px;">
+            <label for="statBgColorInput">스탯 박스 배경색</label>
+            <input type="color" id="statBgColorInput" value="#000000" />
           </div>
         </div>
       </div>
@@ -918,7 +937,12 @@
     bindColor("boxBorderColorInput", ["--box-border"]);
     bindColor("tagColorInput",    ["--tag-accent"]);
     bindColor("physicalColorInput", ["--physical-line"]);
-    bindColor("statColorInput", ["--stat-accent"]);
+    
+    // STAT(AGE, RANK) 컬러 신규 변수 연결
+    bindColor("statLabelColorInput", ["--stat-accent"]);
+    bindColor("statValueColorInput", ["--stat-value-color"]);
+    bindColor("statBgColorInput", ["--stat-bg"]);
+
     bindColor("relationTextColorInput", ["--relation-title"]);
     bindColor("relationLeftLineInput", ["--relation-left-line"]);
     bindColor("relationBgColorInput", ["--relation-bg"]);
@@ -927,7 +951,6 @@
     bindColor("historyLeftLineColorInput",  ["--history-line-left"]);
     bindColor("historyRightLineColorInput", ["--history-line-right"]);
     
-    // FAVOR / HATE 컬러 바인딩 구조 추가
     bindColor("favorTitleColorInput", ["--favor-title-color"]);
     bindColor("favorColorInput", ["--favor-accent"]);
     bindColor("favorBgColorInput", ["--favor-bg"]);
